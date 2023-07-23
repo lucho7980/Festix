@@ -5,10 +5,31 @@ class Usuario:
         self.id = id
         self.nombre = nombre
         self.apellido = apellido
-        self.historial_eventos = historial_eventos
+        if historial is none:
+            self.historial_eventos = []
+        else:
+            self.historial_eventos = historial_eventos
+        
+    def agregar_al_historial(self,id):
+        """
+        Agrega un evento al historial de eventos del usuario a través de un ID (Eventos a los que ya ha asisitido)
+        """
+        if isinstance(id,int): #El id debe ser estríctamente int
+            self.historial_eventos.append(id)
+        else:
+            print("Código erróneo")
 
     def to_json(self):
         return {"id": self.id, "nombre": self.nombre, "apellido": self.apellido, "historial_eventos": self.historial_eventos}
+   
+    def guardar_en_json(self,archivo):
+        """
+        Guarda los datos del usuario en un archivo json
+        """
+        datos = {"nombre":self.nombre,"apellido":self.apellido,"historial_eventos":self.historial_eventos} # Crea un diccionario con los datos del usuario
+        with open(archivo,"w") as file: # Abrir el archivo en modo escritura
+            json.dump(datos,file) # Guardar el diccionario en formato json
+    
 
     @classmethod    
     def from_json(cls, json_data):
