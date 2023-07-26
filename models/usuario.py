@@ -26,7 +26,7 @@ class Usuario:
         """
         Guarda los datos del usuario en un archivo json
         """
-        datos = {"nombre":self.nombre,"apellido":self.apellido,"historial_eventos":self.historial_eventos} # Crea un diccionario con los datos del usuario
+        datos = to_json()
         with open(archivo,"w") as file: # Abrir el archivo en modo escritura
             json.dump(datos,file) # Guardar el diccionario en formato json
     

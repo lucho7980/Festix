@@ -19,6 +19,14 @@ class Evento:
     def to_json(self):
         return {"id": self.id, "nombre": self.nombre, "artista": self.artista, "genero": self.genero, "id_ubicacion": self.id_ubicacion, "hora_inicio": self.hora_inicio, "hora_fin": self.hora_fin, "descripcion": self.descripcion, "imagen": self.imagen}
     
+    def guardar_en_json(self,archivo):
+        """
+        Guarda los datos del usuario en un archivo json
+        """
+        datos = to_json()# Crea un diccionario con los datos del usuario
+        with open(archivo,"w") as file: # Abrir el archivo en modo escritura
+            json.dump(datos,file) # Guardar el diccionario en formato json 
+    
     @classmethod    
     def from_json(cls, json_data):
         data = json.loads(json_data)
