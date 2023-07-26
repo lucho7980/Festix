@@ -1,7 +1,6 @@
 import tkinter as tk
 import customtkinter as ctk
-from tkinter import *
-from tkinter import messagebox
+import json as j
 
 class MiApp(tk.Tk):
     def __init__(self):
@@ -44,16 +43,27 @@ class MiFrame(tk.Frame):
         #Botones
         self.boton_enviar = ctk.CTkButton(self.Frame, text="ENVIAR", command=self.saludar)
         self.boton_enviar.grid(row=4,column=2)
+        
+        
+    def cambiarGUI():
+        pass
     
-    def saludar(self):
-        """
-        nombre = self.EntryNombre.get() 
-        mensaje = f"¡Bienvenido, {nombre}!"
-        self.EntryNombre.delete(0,tk.END)
-        self.EntryNombre.insert(0,mensaje)
-        """
-        mensaje = self.EntryNombre.get()
-        return messagebox.showinfo("¡Bienvenido¡",mensaje)
+    def IniciarSesion(self,archivo="data\inicio_sesion.inicio_sesion.json"):
+        user = self.EntryNombre.get()
+        passw = self.EntryContra.get()
+        with open(archivo,"r") as file:
+            if file[usuario] == user and file[contrasenia] == passw:
+                cambiarGUI()
+            else:
+                return "El usuario o la contraseña no coinciden con algún usuario registrado."
+            
+    def registrarCuenta(self,archivo="data\inicio_sesion.inicio_sesion.json"):
+        user = self.EntryNombre.get()
+        passw = self.EntryContra.get()
+        with open(archivo,"w") as file:
+            file[usuario] = user
+            file[contrasenia] = passw
+            
         
         
 if __name__ == "__main__":

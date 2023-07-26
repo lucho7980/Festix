@@ -19,7 +19,7 @@ class Evento:
     def to_json(self):
         return {"id": self.id, "nombre": self.nombre, "artista": self.artista, "genero": self.genero, "id_ubicacion": self.id_ubicacion, "hora_inicio": self.hora_inicio, "hora_fin": self.hora_fin, "descripcion": self.descripcion, "imagen": self.imagen}
     
-    def guardar_en_json(self,archivo):
+    def guardar_en_json(self,archivo="data\evento.json"):
         """
         Guarda los datos del usuario en un archivo json
         """
@@ -28,7 +28,7 @@ class Evento:
             json.dump(datos,file) # Guardar el diccionario en formato json 
     
     @classmethod    
-    def from_json(cls, json_data):
+    def from_json(cls, json_data="data\evento.json"):
         data = json.loads(json_data)
         return cls(data["id"], data["nombre"], data["artista"], data["genero"], data["id_ubicacion"], data["hora_inicio"], data["hora_fin"], data["descripcion"], data["imagen"])
     

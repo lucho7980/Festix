@@ -9,7 +9,7 @@ class rutaVisita:
     def to_json(self):
         return {"id": self.id, "nombre": self.nombre, "destinos": self.destinos}
     
-    def guardar_en_json(self,archivo):
+    def guardar_en_json(self,archivo="data\ruta_visitada.json"):
         """
         Guarda los datos del destino en un archivo json
         """
@@ -18,6 +18,6 @@ class rutaVisita:
             json.dump(datos,file) # Guardar el diccionario en formato json
 
     @classmethod    
-    def from_json(cls, json_data):
+    def from_json(cls, json_data="data\ruta_visitada.json"):
         data = json.loads(json_data)
         return cls(data["id"], data["nombre"], data["destinos"])

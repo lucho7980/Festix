@@ -10,7 +10,7 @@ class Ubicacion:
     def to_json(self):
         return {"id": self.id, "nombre": self.nombre, "direccion": self.direccion, "coordenadas": self.coordenadas}
     
-    def guardar_en_json(self,archivo):
+    def guardar_en_json(self,archivo="data\\ubicacion.json"):
         """
         Guarda los datos de una ubicación en un archivo json
         """
@@ -19,7 +19,7 @@ class Ubicacion:
             json.dump(datos,file) # Guardar el diccionario en formato json
     
     @classmethod    
-    def from_json(cls, json_data):
+    def from_json(cls, json_data="data\\ubicacion.json"):
         data = json.loads(json_data)
         return cls(data["id"], data["nombre"], data["direccion"], data["coordenadas"])
         

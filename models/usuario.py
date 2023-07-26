@@ -22,7 +22,7 @@ class Usuario:
     def to_json(self):
         return {"id": self.id, "nombre": self.nombre, "apellido": self.apellido, "historial_eventos": self.historial_eventos}
    
-    def guardar_en_json(self,archivo):
+    def guardar_en_json(self,archivo="data\\usuario.json"):
         """
         Guarda los datos del usuario en un archivo json
         """
@@ -32,6 +32,9 @@ class Usuario:
     
 
     @classmethod    
-    def from_json(cls, json_data):
+    def from_json(cls, json_data="data\\usuario.json"):
         data = json.loads(json_data)
-        return cls(data["id"], data["nombre"], data["apellido"], data["historiaL_eventos"])       
+        return cls(data["id"], data["nombre"], data["apellido"], data["historiaL_eventos"])
+    
+    
+    

@@ -16,7 +16,7 @@ class Review:
     def to_json(self):
         return {"id": self.id, "id_evento": self.id_evento, "id_usuario": self.id_usuario, "calificacion": self.calificacion, "comentario": self.comentario, "animo": self.animo}
     
-    def guardar_en_json(self,archivo):
+    def guardar_en_json(self,archivo="data\review.json"):
         """
         Guarda los datos de la review en un archivo json
         """
@@ -25,7 +25,7 @@ class Review:
             json.dump(datos,file) # Guardar el diccionario en formato json
         
     @classmethod    
-    def from_json(cls, json_data):
+    def from_json(cls, json_data="data\review.json"):
         data = json.loads(json_data)
         return cls(data["id"], data["id_evento"], data["id_usuaro"], data["calificacion"], data["comentario"], data["animo"])
     
