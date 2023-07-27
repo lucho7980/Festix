@@ -2,21 +2,20 @@ import tkinter as tk
 import customtkinter as ctk
 import json as j
 
-class MiApp(tk.Tk):
+class MiApp(ctk.CTk):
     def __init__(self):
         super().__init__()
         
         self.title("FESTIX")
         self.geometry("600x600")
         
-class MiFrame(tk.Frame):
+class MiFrame(ctk.CTkFrame):
     def __init__(self,master):
         super().__init__(master)
         self.crearWidgets()
-    
-    def crearWidgets(self):
+        
         #Frame
-        self.Frame = tk.Frame(self, width=600, height=600, bg="white")
+        self.Frame = ctk.CTkFrame(self, width=600, height=600, bg="white")
         self.Frame.grid(row=0, column=0, sticky="nsew")
         self.Frame.grid_rowconfigure(0, weight=1)
         self.Frame.grid_columnconfigure(0, weight=1)
@@ -44,7 +43,7 @@ class MiFrame(tk.Frame):
         self.boton_enviar = ctk.CTkButton(self.Frame, text="ENVIAR", command=self.saludar)
         self.boton_enviar.grid(row=4,column=2)
         
-        
+    """   
     def cambiarGUI():
         pass
     
@@ -63,7 +62,7 @@ class MiFrame(tk.Frame):
         with open(archivo,"w") as file:
             file[usuario] = user
             file[contrasenia] = passw
-            
+    """        
         
         
 if __name__ == "__main__":
