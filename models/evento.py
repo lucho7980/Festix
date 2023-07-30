@@ -29,6 +29,7 @@ class Evento:
     
     @classmethod    
     def from_json(cls, json_data="data\evento.json"):
-        data = json.loads(json_data)
+        with open(json_data,"r") as f:
+            data = json.loads(f)
         return cls(data["id"], data["nombre"], data["artista"], data["genero"], data["id_ubicacion"], data["hora_inicio"], data["hora_fin"], data["descripcion"], data["imagen"])
     

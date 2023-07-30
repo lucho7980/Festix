@@ -8,9 +8,12 @@ gris = "#444444"
 cian = "#00ffff"
 rosa =  "#FF69B4"
 
-class App(ctk.CTk):
-    def __init__(self):
-        super().__init__()
+class VistaInicio(ctk.CTk):
+    def __init__(self,master=None,controlador=None):
+        super().__init__(master)
+        self.master = master
+        self.controlador = controlador
+        
         #RAIZ
         self.title("FESTIX")
         self.geometry("500x600")
@@ -36,20 +39,15 @@ class App(ctk.CTk):
         #BOTONES
         def IniciarSesion(self):
             pass
-        def registrarCuenta(self):
+        def registrarCuenta(self,label):
+           # label.configure(text="REGISTRARSE")
             pass
-        
+       
         self.enviar = ctk.CTkButton(self,text="ENVIAR",corner_radius=10,fg_color=cian,command=IniciarSesion("data\inicio_sesion.json")).pack(pady=10,padx=10)
-        self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa,command=registrarCuenta("data\inicio_sesion.json")).pack(pady=10,padx=10)
+        self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa,command=registrarCuenta("data\inicio_sesion.json",self.titulo)).pack(pady=10,padx=10)
         
         self.linea2 = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=cian).pack(pady=10,padx=10)
         
-        def IniciarSesion():
-            pass
-        def registrarCuenta():
-            pass
-        
-        
 if __name__ == "__main__":
-    app = App()
+    app = VistaInicio()
     app.mainloop()
