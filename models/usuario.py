@@ -33,7 +33,8 @@ class Usuario:
 
     @classmethod    
     def from_json(cls, json_data="data\\usuario.json"):
-        data = json.loads(json_data)
+        with open(json_data,"r") as f:
+            data = json.loads(f)
         return cls(data["id"], data["nombre"], data["apellido"], data["historiaL_eventos"])
     
     

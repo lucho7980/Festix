@@ -26,6 +26,7 @@ class Review:
         
     @classmethod    
     def from_json(cls, json_data="data\review.json"):
-        data = json.loads(json_data)
+        with open(json_data,"r") as f:
+            data = json.loads(f)
         return cls(data["id"], data["id_evento"], data["id_usuaro"], data["calificacion"], data["comentario"], data["animo"])
     

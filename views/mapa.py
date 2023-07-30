@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkintermapview import TkinterMapView
 import tkintermapview as mapa
 import customtkinter as ctk
 
@@ -9,9 +10,12 @@ gris = "#444444"
 cian = "#00ffff"
 rosa =  "#FF69B4"
 
-class App(ctk.CTk):
-    def __init__(self):
-        super().__init__()
+class VistaMapa(ctk.CTk):
+    def __init__(self,master=None,controlador=None):
+        super().__init__(master)
+        self.master = master
+        self.controlador = controlador
+        
         #RAIZ
         self.title("FESTIX")
         self.geometry("500x600")
@@ -27,6 +31,22 @@ class App(ctk.CTk):
         self.mapa.pack(pady=10,padx=10)
         self.mapa.set_position(48.8584, 2.2945) #PARIS
         
+        #BOTONES
+        ubicaciones = ctk.CTkButton(
+            self,
+            text="REGRESAR A UBICACIÓNES",
+            corner_radius=10,
+            fg_color=rosa,
+           # command=self.controlador.regresar_ubicaciones
+            ).pack(pady=5,padx=10)
+        add = ctk.CTkButton(
+            self,
+            text="AÑADIR UBICACIÓN",
+            corner_radius=10,
+            fg_color=cian,
+           # command=self.controlador.regresar_ubicaciones
+            ).pack(pady=5,padx=10)
+        
 if __name__ == "__main__":
-    app = App()
+    app = VistaMapa()
     app.mainloop()
