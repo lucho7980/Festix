@@ -5,7 +5,7 @@ class Usuario:
         self.id = id
         self.nombre = nombre
         self.apellido = apellido
-        if historial is none:
+        if historial_eventos is None:
             self.historial_eventos = []
         else:
             self.historial_eventos = historial_eventos
@@ -26,7 +26,7 @@ class Usuario:
         """
         Guarda los datos del usuario en un archivo json
         """
-        datos = to_json()
+        datos = self.to_json()
         with open(archivo,"w") as file: # Abrir el archivo en modo escritura
             json.dump(datos,file) # Guardar el diccionario en formato json
     

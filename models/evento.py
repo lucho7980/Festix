@@ -11,19 +11,21 @@ class Evento:
         self.artista = artista
         self.genero = genero
         self.id_ubicacion = id_ubicacion
-        self.hora_inicio = hora_inicio
-        self.hora_fin = hora_fin
+        self.hora_inicio = datetime.fromisoformat(hora_inicio)
+        self.hora_fin = datetime.fromisoformat(hora_fin)
         self.descripcion = descripcion
         self.imagen = imagen
 
     def to_json(self):
-        return {"id": self.id, "nombre": self.nombre, "artista": self.artista, "genero": self.genero, "id_ubicacion": self.id_ubicacion, "hora_inicio": self.hora_inicio, "hora_fin": self.hora_fin, "descripcion": self.descripcion, "imagen": self.imagen}
+        return {"id": self.id, "nombre": self.nombre, "artista": self.artista, "genero": self.genero, "id_ubicacion": self.id_ubicacion,
+                "hora_inicio": self.hora_inicio.isoformat() , "hora_fin": self.hora_fin.isoformat(),
+                "descripcion": self.descripcion, "imagen": self.imagen}
     
     def guardar_en_json(self,archivo="data\evento.json"):
         """
         Guarda los datos del usuario en un archivo json
         """
-        datos = to_json()# Crea un diccionario con los datos del usuario
+        datos = self.to_json()# Crea un diccionario con los datos del usuario
         with open(archivo,"w") as file: # Abrir el archivo en modo escritura
             json.dump(datos,file) # Guardar el diccionario en formato json 
     
@@ -31,5 +33,7 @@ class Evento:
     def from_json(cls, json_data="data\evento.json"):
         with open(json_data,"r") as f:
             data = json.loads(f)
-        return cls(data["id"], data["nombre"], data["artista"], data["genero"], data["id_ubicacion"], data["hora_inicio"], data["hora_fin"], data["descripcion"], data["imagen"])
+        return cls(data["id"], data["nombre"], data["artista"], data["genero"], data["id_ubicacion"],
+                   datetime.fromisoformat(data["hora_inicio"]), datetime.fromisoformat(data["hora_fin"]),
+                   data["descripcion"], data["imagen"])
     
