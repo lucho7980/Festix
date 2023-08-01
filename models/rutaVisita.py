@@ -13,7 +13,7 @@ class rutaVisita:
         """
         Guarda los datos del destino en un archivo json
         """
-        datos = to_json() # Crea un diccionario con los datos del destino
+        datos = self.to_json() # Crea un diccionario con los datos del destino
         with open(archivo,"w") as file: # Abrir el archivo en modo escritura
             json.dump(datos,file) # Guardar el diccionario en formato json
 
