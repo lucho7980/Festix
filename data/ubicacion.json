@@ -5,5 +5,7 @@
 
     "direccion": "x",
 
-    "coordenadas": "[0]"
+    "longitud": 2345,
+
+    "latitud": 734
 }
