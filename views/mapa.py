@@ -16,9 +16,6 @@ class VistaMapa(ctk.CTk):
         super().__init__(master)
         self.master = master
         self.controlador = controlador
-        self.ubicaciones = []
-        
-        #RAIZ
         self.title("FESTIX")
         self.geometry("500x600")
         self.columnconfigure(0, weight=1)
