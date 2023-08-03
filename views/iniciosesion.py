@@ -8,18 +8,12 @@ gris = "#444444"
 cian = "#00ffff"
 rosa =  "#FF69B4"
 
-class VistaInicio(ctk.CTk):
+class VistaInicio(ctk.CTkFrame):
     def __init__(self,master=None,controlador=None):
         super().__init__(master)
         self.master = master
         self.controlador = controlador
         
-        #RAIZ
-        self.title("FESTIX")
-        self.geometry("500x600")
-        self.columnconfigure(0, weight=1)
-        self.rowconfigure(0,weight=1)
-        self.resizable(False,False)
         #CONFIGURACION DE GRID LAYOUT
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure((2, 3), weight=0)

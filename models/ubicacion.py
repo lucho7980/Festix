@@ -1,16 +1,17 @@
 import json
 
 class Ubicacion:
-    def __init__ (self, id: int, nombre: str, direccion: str, coordenadas: list[float]):
+    def __init__ (self, id: int, nombre: str, direccion: str, longitud:float,latitud:float):
         self.id = id
         self.nombre = nombre
         self.direccion = direccion
-        self.coordenadas  = coordenadas
+        self.longitud  = longitud
+        self.latitud = latitud
     
     def to_json(self):
         return {"id": self.id, "nombre": self.nombre, "direccion": self.direccion, "coordenadas": self.coordenadas}
     
-    def guardar_en_json(self,archivo="data\\ubicacion.json"):
+    def guardar_en_json(self,archivo):
         """
         Guarda los datos de una ubicación en un archivo json
         """
@@ -19,8 +20,8 @@ class Ubicacion:
             json.dump(datos,file) # Guardar el diccionario en formato json
     
     @classmethod    
-    def from_json(cls, json_data="data\\ubicacion.json"):
+    def from_json(cls, json_data):
         with open(json_data,"r") as f:
-            data = json.loads(f)
-        return cls(data["id"], data["nombre"], data["direccion"], data["coordenadas"])
+            data = json.load(f)
+        return [cls(**ubicacion) for ubicacion in data]
         
