@@ -16,8 +16,11 @@ class VistaMapa(ctk.CTk):
         super().__init__(master)
         self.master = master
         self.controlador = controlador
-     
-        #TITULO
+        self.title("FESTIX")
+        self.geometry("500x600")
+        self.columnconfigure(0, weight=1)
+        self.rowconfigure(0,weight=1)
+        self.resizable(False,False)        #TITULO
         self.titulo = ctk.CTkLabel(self,text="MAPA FESTIX",font=("Open Sans",30),text_color=blanco).pack(pady=30,padx=95)
         
         #WIDGET MAPA

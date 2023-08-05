@@ -40,11 +40,10 @@ class VistaInicio(ctk.CTkFrame):
         def IniciarSesion(self):
             pass
         def registrarCuenta(self,label):
-           # label.configure(text="REGISTRARSE")
             pass
        
-        self.enviar = ctk.CTkButton(self,text="ENVIAR",corner_radius=10,fg_color=cian,command=IniciarSesion("data\inicio_sesion.json")).pack(pady=10,padx=10)
-        self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa,command=registrarCuenta("data\inicio_sesion.json",self.titulo)).pack(pady=10,padx=10)
+        self.enviar = ctk.CTkButton(self,text="ENVIAR",corner_radius=10,fg_color=cian,command=self.controlador.mostrar_ubicaciones).pack(pady=10,padx=10)
+        self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa,command=self.controlador.mostrar_ubicaciones).pack(pady=10,padx=10)
         
         self.linea2 = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=cian).pack(pady=10,padx=10)
         

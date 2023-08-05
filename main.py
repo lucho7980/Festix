@@ -12,7 +12,7 @@ from controllers.controlador_info import ControladorInfo
 
 class Aplicacion(ctk.CTk):
     def __init__(self):
-        super().__init__(self)
+        super().__init__()
         self.title("FESTIX")
         self.geometry("400x500")
         self.resizable(False,False)
@@ -23,16 +23,16 @@ class Aplicacion(ctk.CTk):
         ubicaciones = Ubicacion.from_json("data/ubicacion.json")
         
         controlador_inicio = ControladorInicio(self)
-        controlador_ubicaciones = ControladorUbicacion(self)
-        controlador_info = ControladorInfo(self)
+        controlador_ubicaciones = ControladorUbicacion(self,ubicaciones)
+        #controlador_info = ControladorInfo(self)
         
         self.vista_inicio = VistaInicio(self,controlador_inicio)
         self.vista_ubicaciones = VistaUbicacion(self,controlador_ubicaciones)
-        self.vista_mapa = VistaMapa(self, controlador_info)
+        #self.vista_mapa = VistaMapa(self, controlador_info)
         
         self.ajustar_frame(self.vista_inicio)
         self.ajustar_frame(self.vista_ubicaciones)
-        self.ajustar_frame(self.vista_mapa)
+        #self.ajustar_frame(self.vista_mapa)
         
     def ajustar_frame(self,frame):
         frame.grid(row=0,column=0,sticky="nsew")
