@@ -11,7 +11,7 @@ rosa =  "#FF69B4"
 class VistaUbicacion(ctk.CTkFrame):
     def __init__(self,master=None,controlador=None):
         super().__init__(master)
-        self.master = master
+        self.app = master
         self.controlador = controlador
         
         #CONFIGURACION DE GRID LAYOUT
@@ -26,22 +26,22 @@ class VistaUbicacion(ctk.CTkFrame):
         self.scrollableframe = ctk.CTkScrollableFrame(self, width=200, height=200, border_color=rosa, scrollbar_button_color=rosa)
         self.scrollableframe.pack(pady=0, padx=105)
 
-        self.boton_ubicacion1 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian)
+        self.boton_ubicacion1 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian,command=self.controlador.mostrar_mapa)
         self.boton_ubicacion1.pack(pady=10)
 
-        self.boton_ubicacion2 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian)
+        self.boton_ubicacion2 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian,command=self.controlador.mostrar_mapa)
         self.boton_ubicacion2.pack(pady=10)
 
-        self.boton_ubicacion3 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian)
+        self.boton_ubicacion3 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian,command=self.controlador.mostrar_mapa)
         self.boton_ubicacion3.pack(pady=10)
 
-        self.boton_ubicacion4 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian)
+        self.boton_ubicacion4 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian,command=self.controlador.mostrar_mapa)
         self.boton_ubicacion4.pack(pady=10)
 
         #BOTONES
         self.boton_inicio = ctk.CTkButton(
             self,
-            text="CERRAR SESIÓN",#command=self.controlador.regresar_inicio,
+            text="CERRAR SESIÓN",command= self.controlador.mostrar_inicio,
             corner_radius=10,
             fg_color=cian).pack(pady=30,padx=90)
        

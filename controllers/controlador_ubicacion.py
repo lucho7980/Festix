@@ -15,9 +15,10 @@ class ControladorUbicacion:
             self.app.vista_info.mostrar_info_ubicacion(ubicacion)    
             self.app.cambiar_frame(self.app.vista_info)
             
-    def regresar_inicio(self):
-        self.app.cambiar_frame(self.appv.vista_inicio) 
+    def mostrar_inicio(self):
+        self.app.cambiar_frame(self.app.vista_inicio)
         
-        
+    def mostrar_mapa(self):
+        self.app.cambiar_frame(self.app.vista_mapa)    
         
         

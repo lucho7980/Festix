@@ -11,20 +11,17 @@ gris = "#444444"
 cian = "#00ffff"
 rosa =  "#FF69B4"
 
-class VistaMapa(ctk.CTk):
+class VistaMapa(ctk.CTkFrame):
     def __init__(self,master=None,controlador=None):
         super().__init__(master)
         self.master = master
         self.controlador = controlador
-        self.title("FESTIX")
-        self.geometry("500x600")
-        self.columnconfigure(0, weight=1)
-        self.rowconfigure(0,weight=1)
-        self.resizable(False,False)        #TITULO
-        self.titulo = ctk.CTkLabel(self,text="MAPA FESTIX",font=("Open Sans",30),text_color=blanco).pack(pady=30,padx=95)
+        
+        #TITULO
+        self.titulo = ctk.CTkLabel(self,text="MAPA FESTIX",font=("Open Sans",30),text_color=blanco).pack(pady=30,padx=55)
         
         #WIDGET MAPA
-        self.mapa = mapa.TkinterMapView(self,width=400, height=200,corner_radius=10)
+        self.mapa = mapa.TkinterMapView(self,width=300, height=200,corner_radius=10)
         self.mapa.pack(pady=10,padx=10)
         self.mapa.set_address("Salta, Salta,Argentina",marker=True)
         
@@ -44,7 +41,7 @@ class VistaMapa(ctk.CTk):
             text="REGRESAR A UBICACIÓNES",
             corner_radius=10,
             fg_color=rosa,
-           # command=self.controlador.regresar_ubicaciones
+            command=self.controlador.mostrar_ubicaciones
             ).pack(pady=5,padx=10)
            
 if __name__ == "__main__":
