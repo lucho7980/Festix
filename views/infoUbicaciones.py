@@ -14,11 +14,6 @@ class VistaInfo(ctk.CTkFrame):
         self.master = master
         self.controlador = controlador
         
-        #self.title("FESTIX")
-        #self.geometry("500x600")
-        #self.columnconfigure(0, weight=1)
-        #self.rowconfigure(0,weight=1)
-        #self.resizable(False,False)
         #CONFIGURACION DE GRID LAYOUT
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure((2, 3), weight=0)
@@ -37,15 +32,6 @@ class VistaInfo(ctk.CTkFrame):
            # command=self.controlador.regresar_ubicaciones
             )
         self.boton_regresar.pack(pady=10)
-
-    def mostrar_info_juego(self, ubicacion):
-        """
-        Muestra la información de la ubicacion recibida como parámetro.
-        """
-        info = f"Nombre: {ubicacion.nombre}\nDirección: {ubicacion.direccion}\nCoordenadas: {ubicacion.coordenadas}\nID: {ubicacion.id}"
-        self.ubicacion_label["text"] = info
-        
-        
         
 app= VistaInfo()
 app.mainloop()
