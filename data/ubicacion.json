@@ -1,16 +1,23 @@
 [
     {
         "id": 0,
-        "nombre": "HOLAAAAAAA",
-        "direccion": "ddd",
-        "longitud": 2345,
-        "latitud": 234
+        "nombre": "PARIS",
+        "direccion": "asdaa",
+        "longitud": 2.2945,
+        "latitud": 48.8584
     },
     {
         "id": 1,
-        "nombre": "HOLAAAAA",
+        "nombre": "LONDRES",
         "direccion": "xaaa",
-        "longitud": 2345,
-        "latitud": 234
+        "longitud":  51.5074,
+        "latitud": 0.1278
+    },
+    {
+        "id": 2,
+        "nombre": "ARGENTINA",
+        "direccion": "xaaa",
+        "longitud": 52.5165303,
+        "latitud":13.3761690
     }
 ]

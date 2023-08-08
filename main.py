@@ -14,13 +14,14 @@ class Aplicacion(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("FESTIX")
-        self.geometry("400x475")
+        self.geometry("394x500")
         self.resizable(False,False)
         self.inicializar()
         self.cambiar_frame(self.vista_inicio)
         self.grid_columnconfigure(1, weight=1)
         self.grid_columnconfigure((2, 3), weight=0)
         self.grid_rowconfigure((0, 1, 2), weight=1)
+        self.config(bg="#222222",pady=30)
         
     def inicializar(self):
         ubicaciones = Ubicacion.from_json("data/ubicacion.json")

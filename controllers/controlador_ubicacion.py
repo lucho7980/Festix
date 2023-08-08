@@ -11,8 +11,9 @@ class ControladorUbicacion:
         indice = self.app.vista_ubicaciones.obtener_ubicacion_seleccionada()
         if indice is not None:
             ubicacion = self.modelo_ubicaciones[indice]
-            self.app.vista_info.mostrar_info_ubicacion(ubicacion)    
-            self.app.cambiar_frame(self.app.vista_info)
+            self.app.vista_mapa.mostrar_info_ubicacion(ubicacion)
+            self.app.vista_mapa.agregar_marcador(ubicacion)   
+            self.app.cambiar_frame(self.app.vista_mapa)
             
     def mostrar_inicio(self):
         self.app.cambiar_frame(self.app.vista_inicio)

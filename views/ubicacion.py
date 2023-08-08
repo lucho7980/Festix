@@ -36,10 +36,11 @@ class VistaUbicacion(ctk.CTkFrame):
         self.listbox.bind("<Double-Button-1>", self.seleccionar_ubicacion)
 
         self.listbox.pack(pady=10)
-        ###########################
         
         self.actualizar_ubicaciones()
         self.obtener_ubicacion_seleccionada()
+        
+        self.linea = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=rosa).pack(pady=15,padx=10)
         
         #BOTONES
         self.boton_inicio = ctk.CTkButton(
@@ -50,7 +51,7 @@ class VistaUbicacion(ctk.CTkFrame):
         
            #FUNCIONES 
     def actualizar_ubicaciones(self):
-            ubicaciones = self.controlador.ubicaciones()
+            ubicaciones = self.controlador.return_ubicaciones()
             self.listbox.delete(0, tk.END)
             for ubicacion in ubicaciones:
                 self.listbox.insert(tk.END, ubicacion.nombre)
