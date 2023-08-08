@@ -25,6 +25,12 @@ class VistaUbicacion(ctk.CTkFrame):
         #LISTA DE UBICACIONES
         self.listbox = tk.Listbox(self)
         self.listbox.config(width=50)
+        
+        def actualizar_ubicaciones(self):
+            ubicaciones = self.controlador.return_ubicaciones()
+            self.listbox.delete(0, tk.END)
+            for ubicacion in ubicaciones:
+                self.listbox.insert(tk.END, ubicacion.nombre)
 
         # Asocia el evento de doble clic a la función seleccionar_juego
         self.listbox.bind("<Double-Button-1>", self.seleccionar_ubicacion)
@@ -48,6 +54,7 @@ class VistaUbicacion(ctk.CTkFrame):
             self.listbox.delete(0, tk.END)
             for ubicacion in ubicaciones:
                 self.listbox.insert(tk.END, ubicacion.nombre)
+
 
     def obtener_ubicacion_seleccionada(self):
             """

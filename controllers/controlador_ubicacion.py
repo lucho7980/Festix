@@ -4,7 +4,7 @@ class ControladorUbicacion:
         self.app = app
         self.modelo_ubicaciones = modelo_ubicaciones
         
-    def ubicaciones(self):
+    def return_ubicaciones(self):
         return self.modelo_ubicaciones
     
     def seleccionar_ubicacion(self):
