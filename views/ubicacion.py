@@ -21,32 +21,49 @@ class VistaUbicacion(ctk.CTkFrame):
         
         #TITULO
         self.titulo = ctk.CTkLabel(self,text="UBICACIONES",font=("Open Sans",30),text_color=blanco).pack(pady=30,padx=95)
-        
+
         #LISTA DE UBICACIONES
-        self.scrollableframe = ctk.CTkScrollableFrame(self, width=200, height=200, border_color=rosa, scrollbar_button_color=rosa)
-        self.scrollableframe.pack(pady=0, padx=105)
+        self.listbox = tk.Listbox(self)
+        self.listbox.config(width=50)
 
-        self.boton_ubicacion1 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian,command=self.controlador.mostrar_mapa)
-        self.boton_ubicacion1.pack(pady=10)
+        # Asocia el evento de doble clic a la función seleccionar_juego
+        self.listbox.bind("<Double-Button-1>", self.seleccionar_ubicacion)
 
-        self.boton_ubicacion2 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian,command=self.controlador.mostrar_mapa)
-        self.boton_ubicacion2.pack(pady=10)
-
-        self.boton_ubicacion3 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian,command=self.controlador.mostrar_mapa)
-        self.boton_ubicacion3.pack(pady=10)
-
-        self.boton_ubicacion4 = ctk.CTkButton(self.scrollableframe, text="", corner_radius=10, fg_color=cian,command=self.controlador.mostrar_mapa)
-        self.boton_ubicacion4.pack(pady=10)
-
+        self.listbox.pack(pady=10)
+        
         #BOTONES
         self.boton_inicio = ctk.CTkButton(
             self,
             text="CERRAR SESIÓN",command= self.controlador.mostrar_inicio,
             corner_radius=10,
-            fg_color=cian).pack(pady=30,padx=90)
-       
+            fg_color=cian).pack(pady=30,padx=90)      
         
-     
+           #FUNCIONES 
+    def actualizar_ubicaciones(self):
+            ubicaciones = self.controlador.ubicaciones()
+            self.listbox.delete(0, tk.END)
+            for ubicacion in ubicaciones:
+                self.listbox.insert(tk.END, juego.titulo)
+
+    def obtener_ubicacion_seleccionada(self):
+            """
+            Retorna el índice del juego seleccionado en la lista.
+            """
+            indice = self.listbox.curselection()
+            if indice:
+                return indice[0]
+            else:
+                return None
+
+    def seleccionar_ubicacion(self, event):
+            """
+            Obtiene el índice del juego seleccionado y llama al controlador para
+            mostrar la información del juego.
+            """
+            self.controlador.seleccionar_ubicacion()
+        
+              
+        
 if __name__ == "__main__":
     app = VistaUbicacion()
     app.mainloop()

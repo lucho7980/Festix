@@ -1,11 +1,10 @@
 
-
 class ControladorUbicacion:
     def __init__(self,app,modelo_ubicaciones):
         self.app = app
         self.modelo_ubicaciones = modelo_ubicaciones
         
-    def obtener_ubicaciones(self):
+    def ubicaciones(self):
         return self.modelo_ubicaciones
     
     def seleccionar_ubicacion(self):

@@ -26,7 +26,7 @@ class VistaInicio(ctk.CTkFrame):
         self.grid_rowconfigure((0, 1, 2), weight=1)
         
         #TITULO
-        self.titulo = ctk.CTkLabel(self,text="BIENVENIDO",font=("Open Sans",30),text_color=blanco).pack(pady=40,padx=10)
+        self.titulo = ctk.CTkLabel(self,text="BIENVENIDO",font=("Open Sans",30),text_color=blanco).pack(pady=20,padx=10)
         
         self.linea1 = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=rosa).pack(pady=10,padx=10)
 
