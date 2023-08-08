@@ -30,6 +30,10 @@ class VistaUbicacion(ctk.CTkFrame):
         self.listbox.bind("<Double-Button-1>", self.seleccionar_ubicacion)
 
         self.listbox.pack(pady=10)
+        ###########################
+        
+        self.actualizar_ubicaciones()
+        self.obtener_ubicacion_seleccionada()
         
         #BOTONES
         self.boton_inicio = ctk.CTkButton(
@@ -43,7 +47,7 @@ class VistaUbicacion(ctk.CTkFrame):
             ubicaciones = self.controlador.ubicaciones()
             self.listbox.delete(0, tk.END)
             for ubicacion in ubicaciones:
-                self.listbox.insert(tk.END, juego.titulo)
+                self.listbox.insert(tk.END, ubicacion.nombre)
 
     def obtener_ubicacion_seleccionada(self):
             """
