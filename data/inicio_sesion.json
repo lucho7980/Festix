@@ -1,5 +1,13 @@
-{
-    "usuario":"x",
-    
-    "contrasenia":"x"
-}
+[
+
+    {
+        "usuario":"perroPrimo",
+
+        "contrasenia":"cat987"
+    },
+    {
+        "usuario": "lucho7980",
+        "contrasenia": "planta123"
+    }
+
+]
