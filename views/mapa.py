@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkintermapview import TkinterMapView
 import tkintermapview as mapa
 import customtkinter as ctk
 
@@ -22,6 +21,7 @@ class VistaMapa(ctk.CTkFrame):
         
         #WIDGET MAPA
         self.mapa = mapa.TkinterMapView(self,width=300, height=200,corner_radius=10)
+        self.mapa.set_tile_server("https://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga")
         self.mapa.pack(pady=5,padx=10)
         
         #LABEL DE LA INFO DEL EVENTO
@@ -32,7 +32,7 @@ class VistaMapa(ctk.CTkFrame):
         #BOTONES
         ubicaciones = ctk.CTkButton(
             self,
-            text="REGRESAR A UBICACIÓNES",
+            text="REGRESAR A UBICACIONES",
             corner_radius=10,
             fg_color=rosa,
             command=self.controlador.mostrar_ubicaciones
@@ -40,13 +40,13 @@ class VistaMapa(ctk.CTkFrame):
         
     #MOSTRAR INFORMACION DE LA UBICACION
     def mostrar_info_ubicacion(self, ubicacion):
-            info = f"Nombre: {ubicacion.nombre}\nDirección: {ubicacion.direccion}\nLongitud: {ubicacion.longitud}\nLatitud: {ubicacion.latitud}\nID: {ubicacion.id}"
+            info = f"Nombre: {ubicacion.nombre}\nDirección: {ubicacion.direccion}"
             self.ubicacion_label["text"] = info
             
     #MUESTRA LA UBICACION EN EL MAPA Y PONE UNA MARCA
     def agregar_marcador(self,ubicacion):
-        self.mapa.set_address(ubicacion.longitud,ubicacion.latitud)
-        self.mapa.set_marker(ubicacion.longitud,ubicacion.latitud)
+        self.mapa.set_position(ubicacion.latitud, ubicacion.longitud)
+        self.mapa.set_marker(ubicacion.latitud, ubicacion.longitud)
         
            
 if __name__ == "__main__":

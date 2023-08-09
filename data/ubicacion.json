@@ -1,23 +1,42 @@
 [
     {
         "id": 0,
-        "nombre": "PARIS",
-        "direccion": "asdaa",
-        "longitud": 2.2945,
-        "latitud": 48.8584
+        "nombre": "Teatro Provincial",
+        "direccion": "Zuviria 70",
+        "latitud": -24.7890515,
+        "longitud": -65.4093220
+        
     },
     {
         "id": 1,
-        "nombre": "LONDRES",
-        "direccion": "xaaa",
-        "longitud":  51.5074,
-        "latitud": 0.1278
+        "nombre": "Centro de Convenciones",
+        "direccion": "Av. Paraguay 2900",
+        "latitud": -24.82834045794514,
+        "longitud": -65.43452373068618
+        
     },
     {
         "id": 2,
-        "nombre": "ARGENTINA",
-        "direccion": "xaaa",
-        "longitud": 52.5165303,
-        "latitud":13.3761690
+        "nombre": "Usina Cultural",
+        "direccion": "Espania 98",
+        "latitud": -24.788809877966642,
+        "longitud": -65.40379113195388
+        
+    },
+    {
+        "id": 3,
+        "nombre": "Plaza Espania",
+        "direccion": "Entre Rios 2400",
+        "latitud": -24.779100221487365,
+        "longitud": -65.4315893644909
+        
+    },
+    {
+        "id": 4,
+        "nombre": "Campo Historico La Cruz",
+        "direccion": "Gral Arenales 1521",
+        "latitud": -24.77141430555018,
+        "longitud": -65.42009878105331
+        
     }
 ]

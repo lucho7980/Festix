@@ -1,7 +1,7 @@
 import json
-import uuid
+
 class Ubicacion:
-    def __init__ (self, id, nombre: str, direccion: str, longitud: float, latitud: float):
+    def __init__ (self, id, nombre: str, direccion: str, latitud: float, longitud: float):
         self.id = id
         self.nombre = nombre
         self.direccion = direccion
@@ -9,7 +9,7 @@ class Ubicacion:
         self.latitud = latitud
     
     def to_json(self):
-        return {"id":self.id, "nombre": self.nombre, "direccion": self.direccion, "longitud": self.longitud, "latitud": self.latitud}
+        return {"id":self.id, "nombre": self.nombre, "direccion": self.direccion,"latitud": self.latitud, "longitud": self.longitud}
     
     def guardar_en_json(self,archivo):
         """
