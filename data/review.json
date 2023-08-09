@@ -1,3 +1,26 @@
-{"id": "f2c06723-fc0e-43b2-a147-bf4c9afd22e5", "id_evento": 123, "id_usuario": 456, "calificacion": 5, "comentario": "Excelente evento", "animo": "Positivo"}
-{"id": "e400c121-55f5-4767-bc12-10e4ab063886", "id_evento": 124, "id_usuario": 457, "calificacion": 4, "comentario": "Buen evento", "animo": "Positivo"}
-{"id": "eb16c676-b39e-454b-80e4-d39722abde2d", "id_evento": 125, "id_usuario": 458, "calificacion": 3, "comentario": "Regular evento", "animo": "Negativo"}
+[
+    {   
+        "id": "f2c06723-fc0e-43b2-a147-bf4c9afd22e5",
+        "id_evento": 123, 
+        "id_usuario": 456,
+        "calificacion": 5,
+        "comentario": "Excelente evento",
+        "animo": "Positivo"
+    },
+    {
+        "id": "e400c121-55f5-4767-bc12-10e4ab063886", 
+        "id_evento": 124,
+        "id_usuario": 457,
+        "calificacion": 4,
+        "comentario": "Buen evento",
+        "animo": "Positivo"
+    },
+    {
+        "id": "eb16c676-b39e-454b-80e4-d39722abde2d",
+        "id_evento": 125,
+        "id_usuario": 458,
+        "calificacion": 3,
+        "comentario": "Regular evento",
+        "animo": "Negativo"
+    }
+]

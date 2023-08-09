@@ -33,6 +33,24 @@ class VistaInicio(ctk.CTkFrame):
                     return
             messagebox.showerror("Error","El usuario o la contraseña no son correctos, reintente.")
         
+        def registrarse():
+            usuario = self.nombre.get()
+            password = self.password.get()
+
+            with open("data/inicio_sesion.json", "r") as json_file:
+                datos = json.load(json_file)
+            for data in datos:
+                if usuario == data["usuario"]:
+                    messagebox.showinfo("Atencion", "El usuario ya existe.")
+                    return
+            
+            nuevo_usuario = {"usuario": usuario, "contrasenia": password}
+            datos.append(nuevo_usuario)
+            with open("data/inicio_sesion.json", "w") as json_file:
+                json.dump(datos, json_file, indent=4)
+                
+            messagebox.showinfo("Usuario", "Se registro con exito.")
+
         #TITULO
         self.titulo = ctk.CTkLabel(self,text="BIENVENIDO",font=("Open Sans",30),text_color=blanco).pack(pady=25,padx=10)
         
@@ -49,7 +67,7 @@ class VistaInicio(ctk.CTkFrame):
 
        
         self.enviar = ctk.CTkButton(self,text="INICIAR SESION",corner_radius=10,fg_color=cian,command= IniciarSesion).pack(pady=10,padx=10)
-        self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa,command=self.controlador.mostrar_ubicaciones).pack(pady=10,padx=10)
+        self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa,command= registrarse).pack(pady=10,padx=10)
         
         self.linea2 = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=cian).pack(pady=15,padx=10)
         

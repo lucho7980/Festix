@@ -1,13 +1,14 @@
 [
-
     {
-        "usuario":"perroPrimo",
-
-        "contrasenia":"cat987"
+        "usuario": "perroPrimo",
+        "contrasenia": "cat987"
     },
     {
         "usuario": "lucho7980",
         "contrasenia": "planta123"
+    },
+    {
+        "usuario": "carlos23",
+        "contrasenia": "panchoconponcho"
     }
-
 ]
