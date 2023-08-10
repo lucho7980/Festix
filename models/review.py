@@ -23,22 +23,10 @@ class Review:
         datos = self.to_json() # Crea un diccionario con los datos de la review
         with open(archivo,"a") as file: # Abre el archivo en modo append, asi se agrega cada review en el json
             json.dump(datos,file) # Guardar el diccionario en formato json
-            file.write("\n") #crea un salto de linea despues de cada review para poder separarlas
+        
     @classmethod    
     def from_json(cls, json_data="data/review.json"):
-        reviews = []
-        with open(json_data, "r") as f:
-            for line in f:
-                line = line.strip()  # Eliminar espacios en blanco al inicio y al final de la línea
-                if line:
-                    try:
-                        data = json.loads(line)
-                        review = cls(data["id_evento"], data["id_usuario"], data["calificacion"], data["comentario"], data["animo"])
-                        reviews.append(review)
-                    except json.JSONDecodeError as e:
-                        print(f"Error al cargar la línea: {line}")
-                        print(f"Error: {e}")
-        return reviews
+        pass
     
     
     @classmethod
@@ -52,16 +40,16 @@ class Review:
 # Ejemplo de uso:
 
 # Crear una nueva review y guardarla en el archivo json
-review1 = Review(123, 456, 5, "Excelente evento", "Positivo")
-review1.guardar_en_json()
+#review1 = Review(123, 456, 5, "Excelente evento", "Positivo")
+#review1.guardar_en_json()
 
-review2 = Review(124, 457, 4, "Buen evento", "Positivo")
-review2.guardar_en_json()
+#review2 = Review(124, 457, 4, "Buen evento", "Positivo")
+#review2.guardar_en_json()
 
-review3 = Review(125, 458, 3, "Regular evento", "Negativo")
-review3.guardar_en_json()
+#review3 = Review(125, 458, 3, "Regular evento", "Negativo")
+#review3.guardar_en_json()
 # Cargar las reviews desde el archivo
-reviews = Review.from_json()
+#reviews = Review.from_json()
 
 # Mostrar los comentarios y calificaciones
-Review.mostrar_comentarios(reviews)
+#Review.mostrar_comentarios(reviews)

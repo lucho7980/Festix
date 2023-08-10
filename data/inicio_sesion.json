@@ -1,22 +1,14 @@
 [
     {
-        "usuario": "perroPrimo",
-        "contrasenia": "cat987"
-    },
-    {
+        "id": "7e3cee1e-a7c9-4bb6-b06a-7c6f0f7a5cab",
         "usuario": "lucho7980",
-        "contrasenia": "planta123"
+        "contrasenia": "pato98",
+        "historial_eventos": []
     },
     {
-        "usuario": "carlos23",
-        "contrasenia": "panchoconponcho"
-    },
-    {
-        "usuario": "bestoAppEva",
-        "contrasenia": "pit\u00f3n4life"
-    },
-    {
-        "usuario": "bestoAppEvaa",
-        "contrasenia": "piton4life"
+        "id": "f27fb640-c734-48c9-b93d-65e42534f760",
+        "usuario": "perroPrimo",
+        "contrasenia": "auto12",
+        "historial_eventos": []
     }
 ]

@@ -1,7 +1,6 @@
 from tkinter import messagebox
 import customtkinter as ctk
-import json
-
+from models.usuario import Usuario
 
 ctk.set_appearance_mode("dark") 
 #COLORES
@@ -20,37 +19,28 @@ class VistaInicio(ctk.CTkFrame):
         self.grid_columnconfigure((2, 3), weight=0)
         self.grid_rowconfigure((0, 1, 2), weight=1)
         
+        #FUNCIONES DE INICIO DE SESION Y REGISTRO
+        
         def IniciarSesion():
-            with open("data/inicio_sesion.json", "r") as json_file:
-                datos = json.load(json_file)
             
             usuario = self.nombre.get()
             password = self.password.get()
 
-            for data in datos:
-                if usuario == data["usuario"] and password == data["contrasenia"]:
-                    self.controlador.mostrar_ubicaciones()
-                    return
+            
+            if Usuario.autenticar(usuario, password):
+                self.controlador.mostrar_ubicaciones()
+                return
             messagebox.showerror("Error","El usuario o la contraseña no son correctos, reintente.")
         
         def registrarse():
             usuario = self.nombre.get()
             password = self.password.get()
-
-            with open("data/inicio_sesion.json", "r") as json_file:
-                datos = json.load(json_file)
-            for data in datos:
-                if usuario == data["usuario"]:
-                    messagebox.showinfo("Atencion", "El usuario ya existe.")
-                    return
             
-            nuevo_usuario = {"usuario": usuario, "contrasenia": password}
-            datos.append(nuevo_usuario)
-            with open("data/inicio_sesion.json", "w") as json_file:
-                json.dump(datos, json_file, indent=4)
-                
-            messagebox.showinfo("Usuario", "Se registro con exito.")
-
+            if Usuario.registrar(usuario, password):
+                messagebox.showinfo("Usuario", "Se registro con exito.")
+            else:
+                messagebox.showinfo("Atencion", "El usuario ya existe.")
+        
         #TITULO
         self.titulo = ctk.CTkLabel(self,text="BIENVENIDO",font=("Open Sans",30),text_color=blanco).pack(pady=25,padx=10)
         
@@ -65,7 +55,7 @@ class VistaInicio(ctk.CTkFrame):
         
         #BOTONES
         self.enviar = ctk.CTkButton(self,text="INICIAR SESION",corner_radius=10,fg_color=cian,command= IniciarSesion).pack(pady=10,padx=10)
-        self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa,command= registrarse).pack(pady=10,padx=10)
+        self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa, command= registrarse).pack(pady=10,padx=10)
         
         self.linea2 = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=cian).pack(pady=5,padx=10)
         

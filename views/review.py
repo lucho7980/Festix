@@ -13,10 +13,6 @@ class VistaReview(ctk.CTkFrame):
         super().__init__(master)
         self.app = master
         self.controlador = controlador
-        # self.title("FESTIX")
-        # self.geometry("394x500")
-        # self.resizable(False,False)
-        # self.config(bg="#222222")
         
         #CONFIGURACION DE GRID LAYOUT
         self.grid_columnconfigure(1, weight=1)
@@ -34,7 +30,8 @@ class VistaReview(ctk.CTkFrame):
         self.listbox.pack(pady=10,padx=10)
         
         #ENTRY
-        self.review = ctk.CTkEntry(self,placeholder_text="REVIEW",border_color=cian,corner_radius=10,width=250)
+        self.review = ctk.CTkEntry(self,placeholder_text="Deje un comentario sobre el evento",border_color=cian,corner_radius=10,width=250)
+        self.animo = ctk.CTkCheckBox(self)
         self.review.pack(pady=15,padx=10)
         
         #BOTON
