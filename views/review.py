@@ -8,15 +8,15 @@ gris = "#333333"
 cian = "#00ffff"
 rosa =  "#FF69B4"
 
-class VistaReview(ctk.CTk):
+class VistaReview(ctk.CTkFrame):
     def __init__(self,master=None,controlador=None):
         super().__init__(master)
         self.app = master
         self.controlador = controlador
-        self.title("FESTIX")
-        self.geometry("394x500")
-        self.resizable(False,False)
-        self.config(bg="#222222")
+        # self.title("FESTIX")
+        # self.geometry("394x500")
+        # self.resizable(False,False)
+        # self.config(bg="#222222")
         
         #CONFIGURACION DE GRID LAYOUT
         self.grid_columnconfigure(1, weight=1)
@@ -35,7 +35,7 @@ class VistaReview(ctk.CTk):
         
         #ENTRY
         self.review = ctk.CTkEntry(self,placeholder_text="REVIEW",border_color=cian,corner_radius=10,width=250)
-        self.review.pack(pady=20,padx=10)
+        self.review.pack(pady=15,padx=10)
         
         #BOTON
         self.regresar = ctk.CTkButton(
@@ -43,9 +43,9 @@ class VistaReview(ctk.CTk):
             text="REGRESAR AL MAPA",
             corner_radius=10,
             fg_color=rosa,
-            #command=self.controlador.mostrar_ubicaciones
+            command=self.controlador.mostrar_mapa
             )
-        self.regresar.pack(pady=2,padx=10)
+        self.regresar.pack(pady=0,padx=10)
         
         
         

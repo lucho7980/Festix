@@ -4,3 +4,7 @@ class ControladorInfo:
         
     def mostrar_ubicaciones(self):
         self.app.cambiar_frame(self.app.vista_ubicaciones)
+    
+    def mostrar_review(self) :
+        self.app.cambiar_frame(self.app.vista_review)
+        

@@ -44,7 +44,7 @@ class VistaMapa(ctk.CTkFrame):
             text="AGREGAR UNA REVIEW",
             corner_radius=10,
             fg_color=cian,
-            command=self.controlador.mostrar_ubicaciones
+            command=self.controlador.mostrar_review
             )
         self.reviews.pack(pady=10,padx=10)
         

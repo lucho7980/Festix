@@ -19,6 +19,6 @@ class ControladorUbicacion:
         self.app.cambiar_frame(self.app.vista_inicio)
         
     def mostrar_mapa(self):
-        self.app.cambiar_frame(self.app.vista_mapa)    
-        
+        self.app.cambiar_frame(self.app.vista_mapa)  
+    
         

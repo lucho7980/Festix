@@ -3,12 +3,15 @@ import customtkinter as ctk
 from models.usuario import Usuario
 from models.ubicacion import Ubicacion
 from models.evento import Evento
+from models.review import Review
 from views.iniciosesion import VistaInicio
 from views.ubicacion import VistaUbicacion
 from views.mapa import VistaMapa
+from views.review import VistaReview
 from controllers.controlador_inicio import ControladorInicio
 from controllers.controlador_ubicacion import ControladorUbicacion
 from controllers.controlador_info import ControladorInfo
+from controllers.controlador_review import ControladorReview
 
 class Aplicacion(ctk.CTk):
     def __init__(self):
@@ -30,14 +33,17 @@ class Aplicacion(ctk.CTk):
         controlador_inicio = ControladorInicio(self)
         controlador_ubicacion = ControladorUbicacion(self,ubicaciones)
         controlador_info = ControladorInfo(self)
+        controlador_review = ControladorReview(self)
         
         self.vista_inicio = VistaInicio(self,controlador_inicio)
         self.vista_ubicaciones = VistaUbicacion(self,controlador_ubicacion)
         self.vista_mapa = VistaMapa(self, controlador_info)
+        self.vista_review = VistaReview(self, controlador_review)
         
         self.ajustar_frame(self.vista_inicio)
         self.ajustar_frame(self.vista_ubicaciones)
         self.ajustar_frame(self.vista_mapa)
+        self.ajustar_frame(self.vista_review)
         
     def ajustar_frame(self,frame):
         frame.grid(row=0,column=0,sticky="nsew")
