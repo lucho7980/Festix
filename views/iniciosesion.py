@@ -64,12 +64,10 @@ class VistaInicio(ctk.CTkFrame):
         self.password.pack(pady=10,padx=10)
         
         #BOTONES
-
-       
         self.enviar = ctk.CTkButton(self,text="INICIAR SESION",corner_radius=10,fg_color=cian,command= IniciarSesion).pack(pady=10,padx=10)
         self.registrar = ctk.CTkButton(self,text="REGISTRARSE",corner_radius=10,fg_color=rosa,command= registrarse).pack(pady=10,padx=10)
         
-        self.linea2 = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=cian).pack(pady=15,padx=10)
+        self.linea2 = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=cian).pack(pady=5,padx=10)
         
 if __name__ == "__main__":
     app = VistaInicio()

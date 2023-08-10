@@ -1,10 +1,11 @@
 import tkinter as tk
 import customtkinter as ctk
+import itertools
 
 ctk.set_appearance_mode("dark") 
 #COLORES
 blanco = "#eee"
-gris = "#444444"
+gris = "#333333"
 cian = "#00ffff"
 rosa =  "#FF69B4"
 
@@ -23,8 +24,9 @@ class VistaUbicacion(ctk.CTkFrame):
         self.titulo = ctk.CTkLabel(self,text="UBICACIONES",font=("Open Sans",30),text_color=blanco).pack(pady=30,padx=95)
 
         #LISTA DE UBICACIONES
-        self.listbox = tk.Listbox(self)
+        self.listbox = tk.Listbox(self,background=blanco,borderwidth=0,selectborderwidth=0)
         self.listbox.config(width=50)
+        
         
         # Asocia el evento de doble clic a la función seleccionar_juego
         self.listbox.bind("<Double-Button-1>", self.seleccionar_ubicacion)
@@ -35,6 +37,12 @@ class VistaUbicacion(ctk.CTkFrame):
         self.obtener_ubicacion_seleccionada()
         
         self.linea = ctk.CTkLabel(self,text="___________",font=("Open Sans",30),text_color=rosa).pack(pady=15,padx=10)
+        self.aplicar_color(self.listbox)
+        
+    def aplicar_color(self,lista):
+        colores = itertools.cycle([rosa, cian])
+        for i in range(lista.size()):
+            lista.itemconfig(i, selectbackground=next(colores))
         
         #BOTONES
         self.boton_inicio = ctk.CTkButton(
@@ -50,7 +58,6 @@ class VistaUbicacion(ctk.CTkFrame):
             for ubicacion in ubicaciones:
                 self.listbox.insert(tk.END, ubicacion.nombre)
 
-
     def obtener_ubicacion_seleccionada(self):
             indice = self.listbox.curselection()
             if indice:
@@ -60,8 +67,7 @@ class VistaUbicacion(ctk.CTkFrame):
 
     def seleccionar_ubicacion(self, event):
             self.controlador.seleccionar_ubicacion()
-        
-              
+            
         
 if __name__ == "__main__":
     app = VistaUbicacion()

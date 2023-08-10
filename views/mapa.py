@@ -30,13 +30,23 @@ class VistaMapa(ctk.CTkFrame):
         self.ubicacion_label.config(justify=tk.LEFT)
       
         #BOTONES
-        ubicaciones = ctk.CTkButton(
+        self.ubicaciones = ctk.CTkButton(
             self,
             text="REGRESAR A UBICACIONES",
             corner_radius=10,
             fg_color=rosa,
             command=self.controlador.mostrar_ubicaciones
-            ).pack(pady=10,padx=10)
+            )
+        self.ubicaciones.pack(pady=10,padx=10)
+        
+        self.reviews = ctk.CTkButton(
+            self,
+            text="AGREGAR UNA REVIEW",
+            corner_radius=10,
+            fg_color=cian,
+            command=self.controlador.mostrar_ubicaciones
+            )
+        self.reviews.pack(pady=10,padx=10)
         
     #MOSTRAR INFORMACION DE LA UBICACION
     def mostrar_info_ubicacion(self, ubicacion):

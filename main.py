@@ -22,6 +22,7 @@ class Aplicacion(ctk.CTk):
         self.grid_columnconfigure((2, 3), weight=0)
         self.grid_rowconfigure((0, 1, 2), weight=1)
         self.config(bg="#222222",pady=30)
+        self.iconbitmap("assets/logodef.ico")
         
     def inicializar(self):
         ubicaciones = Ubicacion.from_json("data/ubicacion.json")
